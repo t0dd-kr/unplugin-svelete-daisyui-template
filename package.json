@@ -1,0 +1,48 @@
+{
+	"name": "nonvo",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"test": "npm run test:integration && npm run test:unit",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write .",
+		"test:integration": "playwright test",
+		"test:unit": "vitest",
+		"dev:msw-server": "concurrently \"cd msw && ts-node server.ts\" \"npm run dev\""
+	},
+	"devDependencies": {
+		"@iconify/svelte": "^3.1.4",
+		"@playwright/test": "^1.28.1",
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/kit": "^1.20.4",
+		"autoprefixer": "^10.4.14",
+		"msw": "^1.2.3",
+		"postcss": "^8.4.27",
+		"prettier": "^2.8.0",
+		"prettier-plugin-svelte": "^2.10.1",
+		"svelte": "^4.0.5",
+		"svelte-check": "^3.4.3",
+		"tailwindcss": "^3.3.3",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"unplugin-svelte-components": "^0.2.10",
+		"vite": "^4.4.2",
+		"vitest": "^0.32.2"
+	},
+	"type": "module",
+	"dependencies": {
+		"concurrently": "^8.2.0",
+		"daisyui": "^3.5.1",
+		"prettier-plugin-tailwindcss": "^0.4.1",
+		"tailwind-scrollbar-hide": "^1.1.7",
+		"ts-node": "^10.9.1"
+	},
+	"msw": {
+		"workerDirectory": "static"
+	}
+}
